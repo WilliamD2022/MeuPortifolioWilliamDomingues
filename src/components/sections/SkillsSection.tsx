@@ -1,30 +1,105 @@
+import { useLanguage } from "@/contexts/language";
+
 const SkillsSection = () => {
-  const skillCategories = [
-    {
-      title: "Backend",
-      skills: ["Java 17+", "Spring Boot", "Quarkus", "Micronaut", "Node.js", "REST APIs"]
+  const { language } = useLanguage();
+  const copy = {
+    pt: {
+      eyebrow: "Tecnologias",
+      titlePrefix: "Stack",
+      titleAccent: " Técnica",
+      description:
+        "Ferramentas e tecnologias que utilizo para construir soluções robustas e escaláveis",
+      categories: [
+        {
+          title: "Backend",
+          skills: [
+            "Java 17+",
+            "Spring Boot",
+            "Quarkus",
+            "Micronaut",
+            "Node.js",
+            "REST APIs",
+          ],
+        },
+        {
+          title: "Cloud & DevOps",
+          skills: ["AWS", "Docker", "Kubernetes", "CI/CD", "Jenkins", "GitHub Actions"],
+        },
+        {
+          title: "Bancos de Dados",
+          skills: ["PostgreSQL", "MySQL", "Redis", "MongoDB", "DynamoDB"],
+        },
+        {
+          title: "Arquitetura",
+          skills: [
+            "Microservices",
+            "Clean Architecture",
+            "DDD",
+            "SOLID",
+            "Event-Driven",
+            "TDD",
+          ],
+        },
+        {
+          title: "Testes",
+          skills: ["JUnit", "REST Assured", "Cypress", "Selenium", "Robot Framework"],
+        },
+        {
+          title: "Ferramentas",
+          skills: ["Git", "GitHub", "IntelliJ IDEA", "Maven", "Gradle", "Swagger"],
+        },
+      ],
     },
-    {
-      title: "Cloud & DevOps",
-      skills: ["AWS", "Docker", "Kubernetes", "CI/CD", "Jenkins", "GitHub Actions"]
+    en: {
+      eyebrow: "Technologies",
+      titlePrefix: "Technical",
+      titleAccent: " Stack",
+      description:
+        "Tools and technologies I use to build robust and scalable solutions",
+      categories: [
+        {
+          title: "Backend",
+          skills: [
+            "Java 17+",
+            "Spring Boot",
+            "Quarkus",
+            "Micronaut",
+            "Node.js",
+            "REST APIs",
+          ],
+        },
+        {
+          title: "Cloud & DevOps",
+          skills: ["AWS", "Docker", "Kubernetes", "CI/CD", "Jenkins", "GitHub Actions"],
+        },
+        {
+          title: "Databases",
+          skills: ["PostgreSQL", "MySQL", "Redis", "MongoDB", "DynamoDB"],
+        },
+        {
+          title: "Architecture",
+          skills: [
+            "Microservices",
+            "Clean Architecture",
+            "DDD",
+            "SOLID",
+            "Event-Driven",
+            "TDD",
+          ],
+        },
+        {
+          title: "Testing",
+          skills: ["JUnit", "REST Assured", "Cypress", "Selenium", "Robot Framework"],
+        },
+        {
+          title: "Tools",
+          skills: ["Git", "GitHub", "IntelliJ IDEA", "Maven", "Gradle", "Swagger"],
+        },
+      ],
     },
-    {
-      title: "Databases",
-      skills: ["PostgreSQL", "MySQL", "Redis", "MongoDB", "DynamoDB"]
-    },
-    {
-      title: "Architecture",
-      skills: ["Microservices", "Clean Architecture", "DDD", "SOLID", "Event-Driven", "TDD"]
-    },
-    {
-      title: "Testing",
-      skills: ["JUnit", "REST Assured", "Cypress", "Selenium", "Robot Framework"]
-    },
-    {
-      title: "Tools",
-      skills: ["Git", "GitHub", "IntelliJ IDEA", "Maven", "Gradle", "Swagger"]
-    }
-  ];
+  } as const;
+  const text = copy[language];
+  const skillCategories = text.categories;
 
   return (
     <section id="skills" className="section-container bg-gradient-to-b from-transparent via-primary/5 to-transparent">
@@ -32,14 +107,16 @@ const SkillsSection = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <span className="text-primary font-mono text-sm tracking-wider uppercase mb-4 block">
-            Tecnologias
+            {text.eyebrow}
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Stack 
-            <span className="bg-gradient-to-r from-primary via-accent to-neon-blue bg-clip-text text-transparent"> Técnica</span>
+            {text.titlePrefix}
+            <span className="bg-gradient-to-r from-primary via-accent to-neon-blue bg-clip-text text-transparent">
+              {text.titleAccent}
+            </span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Ferramentas e tecnologias que utilizo para construir soluções robustas e escaláveis
+            {text.description}
           </p>
         </div>
 

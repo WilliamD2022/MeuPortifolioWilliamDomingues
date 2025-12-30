@@ -1,71 +1,152 @@
 import { Briefcase, Calendar } from "lucide-react";
+import { useLanguage } from "@/contexts/language";
 
 const ExperienceSection = () => {
-  const experiences = [
-    {
-      role: "Software Engineer Java Back End",
-      company: "ACT DIGITAL",
-      period: "Atualmente",
-      location: "Barueri/SP, Brazil",
-      description: "Desenvolvimento de sistemas para bancos e instituições financeiras, focando em controle de empréstimos, créditos e débitos.",
-      highlights: [
-        "desenvolvendo e mantendo APIs escaláveis com Java 17+, Spring Boot e Spring Data JPA, integradas a PostgreSQL e MongoDB"
-      ]
+  const { language } = useLanguage();
+  const copy = {
+    pt: {
+      eyebrow: "Trajetória",
+      titlePrefix: "Experiência",
+      titleAccent: " Profissional",
+      experiences: [
+        {
+          role: "Software Engineer Java Back End",
+          company: "ACT DIGITAL",
+          period: "Atualmente",
+          location: "Barueri/SP, Brazil",
+          description:
+            "Desenvolvimento de sistemas para bancos e instituições financeiras, focando em controle de empréstimos, créditos e débitos.",
+          highlights: [
+            "desenvolvendo e mantendo APIs escaláveis com Java 17+, Spring Boot e Spring Data JPA, integradas a PostgreSQL e MongoDB",
+          ],
+        },
+        {
+          role: "Engenheiro de Software SR",
+          company: "ITAU UNIBANCO",
+          period: "Mai 2018 – Setembro 2025",
+          location: "São Paulo, Brazil",
+          description:
+            "Desenvolvimento com back-end, front-end e automações para o ecossistema PJ do Itaú.",
+          highlights: [
+            "Atuei na modernização de microsserviços críticos para o ecossistema PJ (Pix, Open Finance)",
+            "Desenvolvimento de APIs REST e BFF com Java, Spring Boot e AWS.",
+            "Otimização de pipelines CI/CD e redução de 40% no tempo de validação de testes regressivos.",
+            "Implementação de estratégias de Automação de Testes (Cypress/Selenium)",
+          ],
+        },
+        {
+          role: "Analista de Testes e Automação",
+          company: "Sempre IT",
+          period: "out 2017 – jul 2018",
+          location: "São Paulo, Brazil",
+          description: "Desenvolvimento de automações de testes",
+          highlights: [
+            "Cenários de testes automatizados com Selenium WebDriver e Java",
+            "Integração com Jenkins para execução contínua de testes",
+            "Criação de relatórios detalhados para análise de qualidade",
+          ],
+        },
+        {
+          role: "Analista de Automação de Testes",
+          company: "Tatsoft",
+          period: "Nov 2016 – Out 2017",
+          location: "Santo Amaro, SP, Brazil",
+          description:
+            "Desenvolvimento de scripts de transações financeiras e automação de testes para sistemas ISO8583.",
+          highlights: [
+            "Atuação em instituições financeiras e em sistemas de cartões de crédito com protocolo ISO-8583. " +
+              "Experiência em modelagem e análise de casos de teste, elaboração de documentação técnica, " +
+              "bem como abertura, acompanhamento e fechamento de bugs.",
+          ],
+        },
+        {
+          role: "Analista de Testes",
+          company: "Inmetrics/Redecard",
+          period: "Set 2010 – Ago 2016",
+          location: "Alphaville, SP, Brazil",
+          description: "Analista de testes para sistemas bancários e financeiros ISO8583.",
+          highlights: [
+            "Teste de Transações Financeiras",
+            "Criação de Scripts ISO8583",
+            "Automação de Testes com Selenium",
+            "Documentação e Relatórios de Bugs",
+          ],
+        },
+      ],
     },
-    {
-      role: "Engenheiro de Software SR",
-      company: "ITAU UNIBANCO",
-      period: "Mai 2018 – Setembro 2025",
-      location: "São Paulo, Brazil",
-      description: "Desenvolvimento com back-end, front-end e automações para o ecossistema PJ do Itaú.",
-      highlights: [
-          "Atuei na modernização de microsserviços críticos para o ecossistema PJ (Pix, Open Finance)",
-          "Desenvolvimento de APIs REST e BFF com Java, Spring Boot e AWS.",
-          "Otimização de pipelines CI/CD e redução de 40% no tempo de validação de testes regressivos.",
-          "Implementação de estratégias de Automação de Testes (Cypress/Selenium)"
-      ]
+    en: {
+      eyebrow: "Timeline",
+      titlePrefix: "Professional",
+      titleAccent: " Experience",
+      experiences: [
+        {
+          role: "Java Backend Software Engineer",
+          company: "ACT DIGITAL",
+          period: "Present",
+          location: "Barueri/SP, Brazil",
+          description:
+            "Building systems for banks and financial institutions, focused on loan, credit, and debit control.",
+          highlights: [
+            "Building and maintaining scalable APIs with Java 17+, Spring Boot, and Spring Data JPA, integrated with PostgreSQL and MongoDB",
+          ],
+        },
+        {
+          role: "Senior Software Engineer",
+          company: "ITAU UNIBANCO",
+          period: "May 2018 – September 2025",
+          location: "São Paulo, Brazil",
+          description:
+            "Back-end, front-end, and automation development for Itaú's SMB ecosystem.",
+          highlights: [
+            "Modernized critical microservices for the SMB ecosystem (Pix, Open Finance)",
+            "Developed REST APIs and BFFs with Java, Spring Boot, and AWS.",
+            "Optimized CI/CD pipelines and reduced regression test validation time by 40%.",
+            "Implemented test automation strategies (Cypress/Selenium).",
+          ],
+        },
+        {
+          role: "QA & Automation Analyst",
+          company: "Sempre IT",
+          period: "Oct 2017 – Jul 2018",
+          location: "São Paulo, Brazil",
+          description: "Test automation development",
+          highlights: [
+            "Automated test scenarios with Selenium WebDriver and Java",
+            "Jenkins integration for continuous test execution",
+            "Created detailed reports for quality analysis",
+          ],
+        },
+        {
+          role: "Test Automation Analyst",
+          company: "Tatsoft",
+          period: "Nov 2016 – Oct 2017",
+          location: "Santo Amaro, SP, Brazil",
+          description:
+            "Developed financial transaction scripts and test automation for ISO8583 systems.",
+          highlights: [
+            "Worked on financial institutions and credit card systems using ISO-8583 protocol. " +
+              "Experience with test case modeling and analysis, technical documentation, " +
+              "and bug reporting, tracking, and resolution.",
+          ],
+        },
+        {
+          role: "QA Analyst",
+          company: "Inmetrics/Redecard",
+          period: "Sep 2010 – Aug 2016",
+          location: "Alphaville, SP, Brazil",
+          description: "QA for ISO8583 banking and financial systems.",
+          highlights: [
+            "Financial transaction testing",
+            "ISO8583 script creation",
+            "Test automation with Selenium",
+            "Bug documentation and reporting",
+          ],
+        },
+      ],
     },
-    {
-      role: "Analista de Testes e Automação",
-      company: "Sempre IT",
-      period: "out 2017 – jul 2018",
-      location: "São Paulo, Brazil",
-      description: "Desenvolvimento de automações de testes",
-      highlights: [
-        "Cenários de testes automatizados com Selenium WebDriver e Java",
-        "Integração com Jenkins para execução contínua de testes",
-        "Criação de relatórios detalhados para análise de qualidade",
-      ]
-    },
-    {
-      role: "Analista de Automação de Testes",
-      company: "Tatsoft",
-      period: "Nov 2016 – Out 2017",
-      location: "Santo Amaro, SP, Brazil",
-      description: "Desenvolvimento de scripts de transações financeiras e automação de testes para sistemas ISO8583.",
-      highlights: [
-        "Atuação em instituições financeiras e em sistemas de cartões de crédito com protocolo ISO-8583. " +
-        "Experiência em modelagem e análise de casos de teste, elaboração de documentação técnica, " +
-        "bem como abertura, acompanhamento e fechamento de bugs."
-      ]
-    },
-
-    {
-      role: "Analista de Testes",
-      company: "Inmetrics/Redecard",
-      period: "Set 2010 – Ago 2016",
-      location: "Alphaville, SP, Brazil",
-      description: "Analista de testes para sistemas bancários e financeiros ISO8583.",
-      highlights: [
-        "Teste de Transações Financeiras",
-        "Criação de Scripts ISO8583",
-        "Automação de Testes com Selenium",
-        "Documentação e Relatórios de Bugs"
-
-      ]
-    }
-
-  ];
+  } as const;
+  const text = copy[language];
+  const experiences = text.experiences;
 
   return (
     <section id="experience" className="section-container bg-gradient-to-b from-transparent via-primary/5 to-transparent">
@@ -73,11 +154,13 @@ const ExperienceSection = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <span className="text-primary font-mono text-sm tracking-wider uppercase mb-4 block">
-            Trajetória
+            {text.eyebrow}
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Experiência 
-            <span className="bg-gradient-to-r from-primary via-accent to-neon-blue bg-clip-text text-transparent"> Profissional</span>
+            {text.titlePrefix}
+            <span className="bg-gradient-to-r from-primary via-accent to-neon-blue bg-clip-text text-transparent">
+              {text.titleAccent}
+            </span>
           </h2>
         </div>
 

@@ -4,8 +4,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import { useLanguage } from "@/contexts/language";
 
 const ContactSection = () => {
+  const { language } = useLanguage();
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
@@ -13,6 +15,106 @@ const ContactSection = () => {
     email: "",
     message: ""
   });
+
+  const copy = {
+    pt: {
+      eyebrow: "Contato",
+      titlePrefix: "Vamos",
+      titleAccent: " Conversar",
+      description:
+        "Interessado em colaborar ou tem alguma pergunta? Ficarei feliz em conversar sobre seu próximo projeto.",
+      nameLabel: "Nome",
+      namePlaceholder: "Seu nome",
+      emailLabel: "Email",
+      emailPlaceholder: "seu@email.com",
+      messageLabel: "Mensagem",
+      messagePlaceholder: "Conte-me sobre seu projeto...",
+      sending: "Enviando...",
+      send: "Enviar Mensagem",
+      toastTitle: "Mensagem enviada!",
+      toastDescription: "Obrigado pelo contato. Responderei em breve.",
+      linksTitle: "Links de Contato",
+      ctaTitle: "Pronto para começar?",
+      ctaDescription:
+        "Estou disponível para projetos freelance, consultoria em arquitetura de software e oportunidades CLT/PJ.",
+      ctaButton: "Conectar no LinkedIn",
+      contactLinks: [
+        {
+          icon: Github,
+          label: "GitHub",
+          value: "WilliamD2022",
+          href: "https://github.com/WilliamD2022",
+        },
+        {
+          icon: Linkedin,
+          label: "LinkedIn",
+          value: "/williamdominguesbarbosa",
+          href: "https://www.linkedin.com/in/williamdominguesbarbosa/",
+        },
+        {
+          icon: Mail,
+          label: "Email",
+          value: "Entrar em contato",
+          href: "mailto:contact@williamdbarbosa.dev",
+        },
+        {
+          icon: MapPin,
+          label: "Localização",
+          value: "Atibaia, SP - Brasil",
+          href: null,
+        },
+      ],
+    },
+    en: {
+      eyebrow: "Contact",
+      titlePrefix: "Let's",
+      titleAccent: " Talk",
+      description:
+        "Interested in collaborating or have a question? I'd be happy to talk about your next project.",
+      nameLabel: "Name",
+      namePlaceholder: "Your name",
+      emailLabel: "Email",
+      emailPlaceholder: "your@email.com",
+      messageLabel: "Message",
+      messagePlaceholder: "Tell me about your project...",
+      sending: "Sending...",
+      send: "Send Message",
+      toastTitle: "Message sent!",
+      toastDescription: "Thanks for reaching out. I'll get back to you soon.",
+      linksTitle: "Contact Links",
+      ctaTitle: "Ready to get started?",
+      ctaDescription:
+        "I’m available for freelance projects, software architecture consulting, and full-time/PJ opportunities.",
+      ctaButton: "Connect on LinkedIn",
+      contactLinks: [
+        {
+          icon: Github,
+          label: "GitHub",
+          value: "WilliamD2022",
+          href: "https://github.com/WilliamD2022",
+        },
+        {
+          icon: Linkedin,
+          label: "LinkedIn",
+          value: "/williamdominguesbarbosa",
+          href: "https://www.linkedin.com/in/williamdominguesbarbosa/",
+        },
+        {
+          icon: Mail,
+          label: "Email",
+          value: "Get in touch",
+          href: "mailto:contact@williamdbarbosa.dev",
+        },
+        {
+          icon: MapPin,
+          label: "Location",
+          value: "Atibaia, SP - Brazil",
+          href: null,
+        },
+      ],
+    },
+  } as const;
+  const text = copy[language];
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -22,40 +124,15 @@ const ContactSection = () => {
     await new Promise(resolve => setTimeout(resolve, 1000));
     
     toast({
-      title: "Mensagem enviada!",
-      description: "Obrigado pelo contato. Responderei em breve.",
+      title: text.toastTitle,
+      description: text.toastDescription,
     });
     
     setFormData({ name: "", email: "", message: "" });
     setIsSubmitting(false);
   };
 
-  const contactLinks = [
-    {
-      icon: Github,
-      label: "GitHub",
-      value: "WilliamD2022",
-      href: "https://github.com/WilliamD2022"
-    },
-    {
-      icon: Linkedin,
-      label: "LinkedIn",
-      value: "/williamdominguesbarbosa",
-      href: "https://www.linkedin.com/in/williamdominguesbarbosa/"
-    },
-    {
-      icon: Mail,
-      label: "Email",
-      value: "Entrar em contato",
-      href: "mailto:contact@williamdbarbosa.dev"
-    },
-    {
-      icon: MapPin,
-      label: "Localização",
-      value: "Atibaia, SP - Brasil",
-      href: null
-    }
-  ];
+  const contactLinks = text.contactLinks;
 
   return (
     <section id="contact" className="section-container bg-gradient-to-b from-transparent via-primary/5 to-transparent">
@@ -63,14 +140,16 @@ const ContactSection = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <span className="text-primary font-mono text-sm tracking-wider uppercase mb-4 block">
-            Contato
+            {text.eyebrow}
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Vamos 
-            <span className="bg-gradient-to-r from-primary via-accent to-neon-blue bg-clip-text text-transparent"> Conversar</span>
+            {text.titlePrefix}
+            <span className="bg-gradient-to-r from-primary via-accent to-neon-blue bg-clip-text text-transparent">
+              {text.titleAccent}
+            </span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Interessado em colaborar ou tem alguma pergunta? Ficarei feliz em conversar sobre seu próximo projeto.
+            {text.description}
           </p>
         </div>
 
@@ -80,12 +159,12 @@ const ContactSection = () => {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                  Nome
+                  {text.nameLabel}
                 </label>
                 <Input
                   id="name"
                   type="text"
-                  placeholder="Seu nome"
+                  placeholder={text.namePlaceholder}
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   required
@@ -95,12 +174,12 @@ const ContactSection = () => {
 
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                  Email
+                  {text.emailLabel}
                 </label>
                 <Input
                   id="email"
                   type="email"
-                  placeholder="seu@email.com"
+                  placeholder={text.emailPlaceholder}
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   required
@@ -110,11 +189,11 @@ const ContactSection = () => {
 
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                  Mensagem
+                  {text.messageLabel}
                 </label>
                 <Textarea
                   id="message"
-                  placeholder="Conte-me sobre seu projeto..."
+                  placeholder={text.messagePlaceholder}
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   required
@@ -130,10 +209,10 @@ const ContactSection = () => {
                 className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-[0_0_20px_hsl(270_100%_65%/0.3)] hover:shadow-[0_0_30px_hsl(270_100%_65%/0.5)] transition-all duration-300"
               >
                 {isSubmitting ? (
-                  "Enviando..."
+                  text.sending
                 ) : (
                   <>
-                    Enviar Mensagem
+                    {text.send}
                     <Send className="w-4 h-4 ml-2" />
                   </>
                 )}
@@ -144,7 +223,9 @@ const ContactSection = () => {
           {/* Contact Info */}
           <div className="space-y-6">
             <div className="glass-card p-8">
-              <h3 className="text-xl font-bold text-foreground mb-6">Links de Contato</h3>
+              <h3 className="text-xl font-bold text-foreground mb-6">
+                {text.linksTitle}
+              </h3>
               <div className="space-y-4">
                 {contactLinks.map((link) => (
                   <div key={link.label}>
@@ -183,9 +264,11 @@ const ContactSection = () => {
 
             {/* CTA Card */}
             <div className="glass-card p-8 bg-gradient-to-br from-primary/10 to-accent/10 border-primary/30">
-              <h3 className="text-xl font-bold text-foreground mb-3">Pronto para começar?</h3>
+              <h3 className="text-xl font-bold text-foreground mb-3">
+                {text.ctaTitle}
+              </h3>
               <p className="text-muted-foreground mb-6">
-                Estou disponível para projetos freelance, consultoria em arquitetura de software e oportunidades CLT/PJ.
+                {text.ctaDescription}
               </p>
               <Button 
                 asChild
@@ -196,7 +279,7 @@ const ContactSection = () => {
                   target="_blank" 
                   rel="noopener noreferrer"
                 >
-                  Conectar no LinkedIn
+                  {text.ctaButton}
                   <Linkedin className="w-4 h-4 ml-2" />
                 </a>
               </Button>

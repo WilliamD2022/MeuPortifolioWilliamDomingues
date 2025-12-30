@@ -1,7 +1,29 @@
 import { Github, Linkedin, Mail, ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/language";
 
 const HeroSection = () => {
+  const { language } = useLanguage();
+  const copy = {
+    pt: {
+      status: "Disponível para novos projetos",
+      titleRole: "Engenheiro de Software Java Back end",
+      impact:
+        "Engenheiro de Software com mais de 15 anos de experiência, atuando no desenvolvimento de soluções escaláveis e na entrega contínua de software em ambientes complexos, distribuídos e de alta disponibilidade.",
+      ctaProjects: "Ver Projetos",
+      ctaContact: "Contato",
+    },
+    en: {
+      status: "Available for new projects",
+      titleRole: "Java Backend Software Engineer",
+      impact:
+        "Software engineer with 15+ years of experience, building scalable solutions and delivering software continuously in complex, distributed, high-availability environments.",
+      ctaProjects: "View Projects",
+      ctaContact: "Contact",
+    },
+  } as const;
+  const text = copy[language];
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Effects */}
@@ -23,7 +45,9 @@ const HeroSection = () => {
         {/* Status Badge */}
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/50 border border-border/50 mb-8 animate-fade-in-up">
           <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-          <span className="text-sm text-muted-foreground font-medium">Disponível para novos projetos</span>
+          <span className="text-sm text-muted-foreground font-medium">
+            {text.status}
+          </span>
         </div>
 
         {/* Main Title */}
@@ -37,7 +61,7 @@ const HeroSection = () => {
 
         {/* Subtitle */}
         <p className="text-xl md:text-2xl text-muted-foreground font-mono mb-4 animate-fade-in-up">
-          Engenheiro de Software Java Back end
+          {text.titleRole}
         </p>
 
         {/* Tech Stack */}
@@ -47,7 +71,7 @@ const HeroSection = () => {
 
         {/* Impact Statement */}
         <p className="text-lg md:text-xl text-foreground/80 mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in-up">
-          Engenheiro de Software com mais de 15 anos de experiência, atuando no desenvolvimento de soluções escaláveis e na entrega contínua de software em ambientes complexos, distribuídos e de alta disponibilidade.
+          {text.impact}
         </p>
 
         {/* CTA Buttons */}
@@ -57,7 +81,7 @@ const HeroSection = () => {
             className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg font-semibold shadow-[0_0_30px_hsl(270_100%_65%/0.3)] hover:shadow-[0_0_40px_hsl(270_100%_65%/0.5)] transition-all duration-300"
             onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
           >
-            Ver Projetos
+            {text.ctaProjects}
           </Button>
           
           <Button 
@@ -66,7 +90,7 @@ const HeroSection = () => {
             className="border-border hover:border-primary/50 hover:bg-primary/5 px-8 py-6 text-lg font-semibold transition-all duration-300"
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
           >
-            Contato
+            {text.ctaContact}
           </Button>
         </div>
 

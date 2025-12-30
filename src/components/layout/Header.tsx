@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/language";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { language, setLanguage } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,13 +16,39 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const copy = {
+    pt: {
+      nav: {
+        about: "Sobre",
+        skills: "Skills",
+        projects: "Projetos",
+        experience: "Experiência",
+        certifications: "Formação",
+        contact: "Contato",
+      },
+      cta: "Contato",
+    },
+    en: {
+      nav: {
+        about: "About",
+        skills: "Skills",
+        projects: "Projects",
+        experience: "Experience",
+        certifications: "Education",
+        contact: "Contact",
+      },
+      cta: "Contact",
+    },
+  } as const;
+  const text = copy[language];
+
   const navLinks = [
-    { href: "#about", label: "Sobre" },
-    { href: "#skills", label: "Skills" },
-    { href: "#projects", label: "Projetos" },
-    { href: "#experience", label: "Experiência" },
-    { href: "#certifications", label: "Formação" },
-    { href: "#contact", label: "Contato" }
+    { href: "#about", label: text.nav.about },
+    { href: "#skills", label: text.nav.skills },
+    { href: "#projects", label: text.nav.projects },
+    { href: "#experience", label: text.nav.experience },
+    { href: "#certifications", label: text.nav.certifications },
+    { href: "#contact", label: text.nav.contact },
   ];
 
   const scrollToSection = (href: string) => {
@@ -66,14 +94,40 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* CTA Button */}
-          <Button 
-            size="sm"
-            className="hidden md:flex bg-primary hover:bg-primary/90 text-primary-foreground"
-            onClick={() => scrollToSection("#contact")}
-          >
-            Contato
-          </Button>
+          {/* CTA Buttons */}
+          <div className="hidden md:flex items-center gap-2">
+            <Button
+              size="sm"
+              variant={language === "pt" ? "default" : "outline"}
+              className={
+                language === "pt"
+                  ? "bg-secondary/80 text-foreground hover:bg-secondary"
+                  : "border-border/50 text-foreground hover:bg-secondary/60"
+              }
+              onClick={() => setLanguage("pt")}
+            >
+              PT
+            </Button>
+            <Button
+              size="sm"
+              variant={language === "en" ? "default" : "outline"}
+              className={
+                language === "en"
+                  ? "bg-secondary/80 text-foreground hover:bg-secondary"
+                  : "border-border/50 text-foreground hover:bg-secondary/60"
+              }
+              onClick={() => setLanguage("en")}
+            >
+              EN
+            </Button>
+            <Button
+              size="sm"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground"
+              onClick={() => scrollToSection("#contact")}
+            >
+              {text.cta}
+            </Button>
+          </div>
 
           {/* Mobile Menu Button */}
           <button
@@ -102,8 +156,32 @@ const Header = () => {
                 className="mt-2 bg-primary hover:bg-primary/90 text-primary-foreground"
                 onClick={() => scrollToSection("#contact")}
               >
-                Contato
+                {text.cta}
               </Button>
+              <div className="flex items-center gap-2">
+                <Button
+                  variant={language === "pt" ? "default" : "outline"}
+                  className={
+                    language === "pt"
+                      ? "bg-secondary/80 text-foreground hover:bg-secondary"
+                      : "border-border/50 text-foreground hover:bg-secondary/60"
+                  }
+                  onClick={() => setLanguage("pt")}
+                >
+                  PT
+                </Button>
+                <Button
+                  variant={language === "en" ? "default" : "outline"}
+                  className={
+                    language === "en"
+                      ? "bg-secondary/80 text-foreground hover:bg-secondary"
+                      : "border-border/50 text-foreground hover:bg-secondary/60"
+                  }
+                  onClick={() => setLanguage("en")}
+                >
+                  EN
+                </Button>
+              </div>
             </div>
           </nav>
         )}

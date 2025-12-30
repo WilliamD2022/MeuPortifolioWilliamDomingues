@@ -1,7 +1,20 @@
 import { Github, Linkedin, Mail, Heart } from "lucide-react";
+import { useLanguage } from "@/contexts/language";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const { language } = useLanguage();
+  const copy = {
+    pt: {
+      madeWith: "Feito com",
+      using: "usando React & Tailwind",
+    },
+    en: {
+      madeWith: "Made with",
+      using: "using React & Tailwind",
+    },
+  } as const;
+  const text = copy[language];
 
   return (
     <footer className="border-t border-border/50 bg-card/30">
@@ -55,7 +68,9 @@ const Footer = () => {
 
           {/* Made with love */}
           <p className="text-sm text-muted-foreground flex items-center gap-1">
-            Feito com <Heart className="w-4 h-4 text-primary fill-primary" /> usando React & Tailwind
+            {text.madeWith}
+            <Heart className="w-4 h-4 text-primary fill-primary" />
+            {text.using}
           </p>
         </div>
       </div>
