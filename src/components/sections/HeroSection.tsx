@@ -37,7 +37,7 @@ const HeroSection = () => {
 
         {/* Subtitle */}
         <p className="text-xl md:text-2xl text-muted-foreground font-mono mb-4 animate-fade-in-up">
-          Senior Software Engineer
+          Engenheiro de Software Java Back end
         </p>
 
         {/* Tech Stack */}
@@ -47,9 +47,7 @@ const HeroSection = () => {
 
         {/* Impact Statement */}
         <p className="text-lg md:text-xl text-foreground/80 mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in-up">
-          Arquiteto de soluções escaláveis para o setor financeiro. 
-          <span className="text-primary font-medium"> +15 anos </span> 
-          transformando requisitos complexos em sistemas robustos e performáticos.
+          Engenheiro de Software com mais de 15 anos de experiência, atuando no desenvolvimento de soluções escaláveis e na entrega contínua de software em ambientes complexos, distribuídos e de alta disponibilidade.
         </p>
 
         {/* CTA Buttons */}

@@ -13,17 +13,17 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>William Domingues Barbosa | Senior Software Engineer</title>
+        <title>William Domingues Barbosa | Engenheiro de Software Java Back end</title>
         <meta 
           name="description" 
-          content="Senior Software Engineer especializado em Java, Spring Boot, AWS e arquitetura de microsserviços. +15 anos de experiência no setor financeiro." 
+          content="Engenheiro de Software Java Back end especializado em Java, Spring Boot, AWS e arquitetura de microsserviços. +15 anos de experiência no setor financeiro." 
         />
         <meta 
           name="keywords" 
-          content="William Domingues Barbosa, Senior Software Engineer, Java Developer, Spring Boot, AWS, Microservices, Backend Developer, Brazil" 
+          content="William Domingues Barbosa, Engenheiro de Software Java Back end, Java Developer, Spring Boot, AWS, Microservices, Backend Developer, Brazil" 
         />
-        <meta property="og:title" content="William Domingues Barbosa | Senior Software Engineer" />
-        <meta property="og:description" content="Senior Software Engineer especializado em Java, Spring Boot, AWS e arquitetura de microsserviços." />
+        <meta property="og:title" content="William Domingues Barbosa | Engenheiro de Software Java Back end" />
+        <meta property="og:description" content="Engenheiro de Software Java Back end especializado em Java, Spring Boot, AWS e arquitetura de microsserviços." />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <link rel="canonical" href="https://williamdbarbosa.dev" />

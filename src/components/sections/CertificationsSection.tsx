@@ -4,30 +4,125 @@ const CertificationsSection = () => {
   const certifications = [
     {
       icon: Languages,
-      title: "EF SET English Certificate",
-      issuer: "EF Standard English Test",
-      year: "2019",
-      description: "C2 Proficient - Score 84/100",
-      link: "https://www.efset.org/cert/9YBMWA"
+      title: "Curso de Comunicação entre Sistemas",
+      issuer: "Full Cycle",
+      year: "dez/2025"
+    },
+    {
+      icon: Languages,
+      title: "Curso de Domain Driven Design",
+      issuer: "Full Cycle",
+      year: "dez/2025"
+    },
+    {
+      icon: Languages,
+      title: "Curso de SOLID Express",
+      issuer: "Full Cycle",
+      year: "dez/2025"
+    },
+    {
+      icon: Languages,
+      title: "Trilha AWS Cloud Practitioner",
+      issuer: "act digital",
+      year: "dez/2025"
+    },
+    {
+      icon: Languages,
+      title: "Ignição Microsserviços",
+      issuer: "AlgaWorks",
+      year: "nov/2025",
+      description:
+        "Spring Boot, Spring Cloud, WebFlux, JPA, PostgreSQL e microsserviços."
+    },
+    {
+      icon: Languages,
+      title: "Banco de Dados e SQL",
+      issuer: "AlgaWorks",
+      year: "nov/2025"
+    },
+    {
+      icon: Languages,
+      title: "Cloud Computing",
+      issuer: "Great Learning",
+      year: "nov/2025"
+    },
+    {
+      icon: Languages,
+      title: "Curso de Docker",
+      issuer: "Full Cycle",
+      year: "nov/2025"
+    },
+    {
+      icon: Languages,
+      title: "Fundamentos da Arquitetura de Software",
+      issuer: "Full Cycle",
+      year: "nov/2025"
+    },
+    {
+      icon: Languages,
+      title: "Getting Started with Notebooks",
+      issuer: "Datadog",
+      year: "nov/2025"
+    },
+    {
+      icon: Languages,
+      title: "Ignição Spring REST",
+      issuer: "AlgaWorks",
+      year: "nov/2025",
+      description:
+        "API REST com Spring Boot, JPA, Flyway, validações e tratamento de erros."
+    },
+    {
+      icon: Languages,
+      title: "Introdução a Inteligência Artificial Generativa",
+      issuer: "act digital",
+      year: "nov/2025"
+    },
+    {
+      icon: Languages,
+      title: "Lógica de Programação com Java",
+      issuer: "AlgaWorks",
+      year: "nov/2025"
+    },
+    {
+      icon: Languages,
+      title: "The Datadog Learning Center",
+      issuer: "Datadog",
+      year: "nov/2025"
     }
   ];
 
   const education = [
     {
-      degree: "Bacharel em Ciência da Computação",
-      institution: "Universidade Carlos Drummond de Andrade",
-      period: "2010 – 2013"
+      degree: "Pós-Graduação em Desenvolvimento de Software (Java Elite)",
+      institution: "UNIPDS",
+      period: "nov/2025",
+      description:
+        "Formação avançada em engenharia de software com Java, com foco em arquitetura, microsserviços, APIs REST, segurança e cloud."
     },
     {
-      degree: "Curso Técnico em Computação",
-      institution: "Centro Paula Souza",
-      period: "2008 – 2009"
+      degree: "Pós-Graduação em Engenharia da Qualidade de Software",
+      institution: "Senac Brasil",
+      period: "2016 – 2017",
+      description:
+        "Formado. Ênfase em aprendizagem ativa, interdisciplinaridade e competências aplicadas ao perfil do egresso."
     },
+
     {
-      degree: "General English Language Course",
-      institution: "Limerick International Study Centre, Ireland",
-      period: "2014"
-    }
+      degree: "Gerenciamento de Projetos e Gestão da Qualidade em TI",
+      institution: "Senac Brasil",
+      period: "2015",
+      description:
+        "Formado. Extensão com boas práticas PMI aplicadas à qualidade e planejamento de projetos."
+    },
+
+    {
+      degree: "Tecnologia em Análise e Desenvolvimento de Sistemas",
+      institution: "UNINOVE",
+      period: "2011 – 2014",
+      description:
+          "Formado. Base sólida em lógica, programação, metodologias de software e laboratórios de desenvolvimento."
+    },
   ];
 
   const skills = [
@@ -68,6 +163,9 @@ const CertificationsSection = () => {
                   <p className="text-sm text-primary font-mono mb-1">{edu.period}</p>
                   <h4 className="font-semibold text-foreground">{edu.degree}</h4>
                   <p className="text-sm text-muted-foreground">{edu.institution}</p>
+                  {edu.description ? (
+                    <p className="text-sm text-muted-foreground mt-2">{edu.description}</p>
+                  ) : null}
                 </div>
               ))}
             </div>
@@ -83,18 +181,14 @@ const CertificationsSection = () => {
             </div>
             <div className="space-y-6">
               {certifications.map((cert) => (
-                <a 
-                  key={cert.title}
-                  href={cert.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block border-l-2 border-accent/30 pl-4 hover:border-accent transition-colors"
-                >
+                <div key={cert.title} className="block border-l-2 border-accent/30 pl-4">
                   <p className="text-sm text-accent font-mono mb-1">{cert.year}</p>
                   <h4 className="font-semibold text-foreground">{cert.title}</h4>
                   <p className="text-sm text-muted-foreground">{cert.issuer}</p>
-                  <p className="text-sm text-primary mt-1">{cert.description}</p>
-                </a>
+                  {cert.description ? (
+                    <p className="text-sm text-primary mt-1">{cert.description}</p>
+                  ) : null}
+                </div>
               ))}
               
               <div className="pt-4 border-t border-border/50">
@@ -136,10 +230,10 @@ const CertificationsSection = () => {
               <div>
                 <div className="flex justify-between mb-2">
                   <span className="text-foreground font-medium">Inglês</span>
-                  <span className="text-primary font-mono text-sm">C2 Proficient</span>
+                  <span className="text-primary font-mono text-sm">Inglês particular (B1)</span>
                 </div>
                 <div className="h-2 rounded-full bg-secondary/50 overflow-hidden">
-                  <div className="h-full w-[84%] bg-gradient-to-r from-primary to-accent rounded-full" />
+                  <div className="h-full w-[45%] bg-gradient-to-r from-primary to-accent rounded-full" />
                 </div>
               </div>
 

@@ -3,54 +3,68 @@ import { Briefcase, Calendar } from "lucide-react";
 const ExperienceSection = () => {
   const experiences = [
     {
-      role: "System Analyst / Senior Developer",
-      company: "Função Sistemas",
-      period: "Nov 2019 – Presente",
-      location: "São Paulo, Brazil",
+      role: "Software Engineer Java Back End",
+      company: "ACT DIGITAL",
+      period: "Atualmente",
+      location: "Barueri/SP, Brazil",
       description: "Desenvolvimento de sistemas para bancos e instituições financeiras, focando em controle de empréstimos, créditos e débitos.",
       highlights: [
-        "Arquitetura e planejamento de sistemas conforme novas regulamentações",
-        "Sistema de Gerenciamento de Empréstimos Vencidos",
-        "WebCCOB: Sistema de visualização e gestão de filas de cobrança",
-        "Front: Sistema de análise de risco e cálculo de taxas"
+        "desenvolvendo e mantendo APIs escaláveis com Java 17+, Spring Boot e Spring Data JPA, integradas a PostgreSQL e MongoDB"
       ]
     },
     {
-      role: ".NET Developer",
-      company: "Engelhart Commodities Trading Partners (BTG)",
-      period: "Mai 2018 – Nov 2019",
+      role: "Engenheiro de Software SR",
+      company: "ITAU UNIBANCO",
+      period: "Mai 2018 – Setembro 2025",
       location: "São Paulo, Brazil",
-      description: "Desenvolvimento de sistemas para trading de commodities utilizando .NET Core, Angular e SQL Server.",
+      description: "Desenvolvimento com back-end, front-end e automações para o ecossistema PJ do Itaú.",
       highlights: [
-        "Implementação de processos Sefaz (NF-e, exportação)",
-        "Criação de relatórios SQL para contratos e estoques",
-        "Suporte técnico à equipe de execução"
+          "Atuei na modernização de microsserviços críticos para o ecossistema PJ (Pix, Open Finance)",
+          "Desenvolvimento de APIs REST e BFF com Java, Spring Boot e AWS.",
+          "Otimização de pipelines CI/CD e redução de 40% no tempo de validação de testes regressivos.",
+          "Implementação de estratégias de Automação de Testes (Cypress/Selenium)"
       ]
     },
     {
-      role: ".NET Developer",
-      company: "Função Sistemas",
-      period: "Abr 2015 – Abr 2018",
+      role: "Analista de Testes e Automação",
+      company: "Sempre IT",
+      period: "out 2017 – jul 2018",
       location: "São Paulo, Brazil",
-      description: "Desenvolvimento de sistemas bancários utilizando .NET C# e PL/SQL.",
+      description: "Desenvolvimento de automações de testes",
       highlights: [
-        "Implementação de novas funcionalidades",
-        "Análise e correção de bugs",
-        "Planejamento de arquitetura de sistemas"
+        "Cenários de testes automatizados com Selenium WebDriver e Java",
+        "Integração com Jenkins para execução contínua de testes",
+        "Criação de relatórios detalhados para análise de qualidade",
       ]
     },
     {
-      role: ".NET Developer",
+      role: "Analista de Automação de Testes",
       company: "Tatsoft",
-      period: "Set 2014 – Abr 2015",
-      location: "Houston, TX (Remote)",
-      description: "Desenvolvimento de sistemas SCADA para a Chevron, coletando dados de perfuração em embarcações.",
+      period: "Nov 2016 – Out 2017",
+      location: "Santo Amaro, SP, Brazil",
+      description: "Desenvolvimento de scripts de transações financeiras e automação de testes para sistemas ISO8583.",
       highlights: [
-        "Sistema de monitoramento em tempo real",
-        "Sistema de notificação customizado para alarmes",
-        "Participação em reuniões de especificação técnica"
+        "Atuação em instituições financeiras e em sistemas de cartões de crédito com protocolo ISO-8583. " +
+        "Experiência em modelagem e análise de casos de teste, elaboração de documentação técnica, " +
+        "bem como abertura, acompanhamento e fechamento de bugs."
+      ]
+    },
+
+    {
+      role: "Analista de Testes",
+      company: "Inmetrics/Redecard",
+      period: "Set 2010 – Ago 2016",
+      location: "Alphaville, SP, Brazil",
+      description: "Analista de testes para sistemas bancários e financeiros ISO8583.",
+      highlights: [
+        "Teste de Transações Financeiras",
+        "Criação de Scripts ISO8583",
+        "Automação de Testes com Selenium",
+        "Documentação e Relatórios de Bugs"
+
       ]
     }
+
   ];
 
   return (
