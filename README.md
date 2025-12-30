@@ -1,57 +1,89 @@
-# William Presents Digital
+# Meu Portifolio - William Domingues
 
-## Project info
+Portfolio pessoal desenvolvido com React + Vite.
 
-Personal portfolio application built with Vite, TypeScript, React, shadcn-ui, and Tailwind CSS.
+## Tecnologias
 
-## How can I edit this code?
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- shadcn/ui
 
-There are several ways of editing your application.
+## Requisitos
 
-**Use your preferred IDE**
+- Node.js (recomendado LTS)
+- npm
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## Como rodar localmente
 
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
+git clone https://github.com/WilliamD2022/MeuPortifolioWilliamDomingues.git
+cd MeuPortifolioWilliamDomingues
+npm install
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## Scripts principais
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+- `npm run dev`: inicia o servidor de desenvolvimento
+- `npm run build`: gera a build de producao
+- `npm run preview`: visualiza a build localmente
 
-**Use GitHub Codespaces**
+## Estrutura principal
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+- `src/components/sections`: secoes do portfolio
+- `src/pages/Index.tsx`: pagina principal
+- `src/App.tsx`: app root
 
-## What technologies are used for this project?
+## Como subir para o GitHub (repositorio novo)
 
-This project is built with:
+```bash
+git add -A
+git commit -m "Atualiza portfolio"
+git remote set-url origin https://github.com/WilliamD2022/MeuPortifolioWilliamDomingues.git
+git push -u origin main
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Se o repositorio no GitHub ja tiver commits, use:
 
-## How can I deploy this project?
+```bash
+git pull --rebase origin main
+git push origin main
+```
 
-Use any static hosting platform that supports Vite builds (e.g. Netlify, Vercel, or GitHub Pages).
+## Deploy
+
+Qualquer hospedagem estatica funciona. Sugestoes:
+
+- GitHub Pages
+- Vercel
+- Netlify
+- Cloudflare Pages
+
+### GitHub Pages
+
+Repositorio: `https://williamd2022.github.io/MeuPortifolioWilliamDomingues/`
+
+1) Garanta o `base` no Vite:
+
+Arquivo: `vite.config.ts`
+
+```ts
+base: "/MeuPortifolioWilliamDomingues/",
+```
+
+2) Gere a build:
+
+```bash
+npm run build
+```
+
+3) Instale a dependencia e publique com `gh-pages`:
+
+```bash
+npm install
+npm run deploy
+```
+
+Isso cria/atualiza o branch `gh-pages` com a pasta `dist`.
